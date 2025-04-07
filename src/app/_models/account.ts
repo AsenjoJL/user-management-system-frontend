@@ -11,7 +11,7 @@ export class Account {
     jwtToken?: string;
     dateCreated?: string;
     isVerified?: boolean;
-    verificationToken?: string; // Added
+    verificationToken?: string; // Addeds
     resetToken?: string; // Added
     resetTokenExpires?: string; // Added
     refreshTokens?: string[]; // Added

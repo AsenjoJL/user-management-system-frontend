@@ -20,7 +20,7 @@ const routes: Routes = [
     ]
   }
 ];
-
+//s
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
 
-    // otherwise redirect to home
+    // otherwise redirect to homes
     { path: '**', redirectTo: '' }
 ];
 

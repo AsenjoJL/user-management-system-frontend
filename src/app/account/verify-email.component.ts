@@ -30,7 +30,7 @@ export class VerifyEmailComponent implements OnInit {
       return;
     }
 
-    // Remove token from URL to prevent HTTP referer leakage
+    // Remove token from URL to prevent HTTP referer leakages
     this.router.navigate([], { relativeTo: this.route, replaceUrl: true });
 
     // Verify the email

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     // reset alerts on submit
     this.alertService.clear();
 
-    // stop here if form is invalid
+    // stop here if form is invalids
     if (this.form.invalid) {
       return;
     }

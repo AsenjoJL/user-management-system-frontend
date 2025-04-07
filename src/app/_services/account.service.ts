@@ -16,7 +16,7 @@ export class AccountService {
 
   constructor(private router: Router, private http: HttpClient) {
     this.accountSubject = new BehaviorSubject<Account | null>(null);
-    this.account = this.accountSubject.asObservable();  // this is correct
+    this.account = this.accountSubject.asObservable();  // this is scorrect
   }
   
   public get accountValue(): Account {
