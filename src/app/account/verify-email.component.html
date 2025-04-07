@@ -1,0 +1,6 @@
+<div *ngIf="emailStatus === EmailStatus.Verifying">
+  Verifying your email...
+</div>
+<div *ngIf="emailStatus === EmailStatus.Failed">
+  Verification failed. Please try again.
+</div>
