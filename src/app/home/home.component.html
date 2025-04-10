@@ -1,7 +1,7 @@
-
 <div class="p-4">
     <div class="container">
-        <h1>Hi {{account.firstName}}!</h1>
-        <p>You're logged in with Angular 10 & JWT!!</p>
+        <h1>Welcome!</h1>
+        <p *ngIf="account">Hi {{account.firstName}}!</p>
+        <p>You're logged in to the Angular User Management System</p>
     </div>
 </div>

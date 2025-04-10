@@ -1,18 +1,17 @@
-import { Role } from './role';
+import {Role } from './role';
 
 export class Account {
-    id?: string;
-    title?: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    password?: string; // Added
-    role?: Role;
-    jwtToken?: string;
-    dateCreated?: string;
-    isVerified?: boolean;
-    verificationToken?: string; // Addeds
-    resetToken?: string; // Added
-    resetTokenExpires?: string; // Added
-    refreshTokens?: string[]; // Added
+    [x: string]: any;
+    isDeleting: boolean = false;
+    constructor(
+        public id: string,
+        public title: string,
+        public firstName: string,
+        public lastName: string,
+        public email: string,
+        public role: Role,
+        public dateCreated: Int16Array,
+        public isVerified: string,
+        public jwtToken?: string
+    ) {}
 }

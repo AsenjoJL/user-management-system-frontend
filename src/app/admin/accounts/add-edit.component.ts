@@ -1,13 +1,23 @@
-
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AccountService, AlertService } from '../../_services';
 import { MustMatch } from '../../_helpers';
 
-@Component({ templateUrl: 'add-edit.component.html' })
+@Component({
+  selector: 'app-add-edit',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink
+  ],
+  templateUrl: 'add-edit.component.html'
+})
 export class AddEditComponent implements OnInit {
   form!: UntypedFormGroup;
   id!: string;
@@ -47,7 +57,9 @@ export class AddEditComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.form.controls; }
+  get f() {
+    return this.form.controls;
+  }
 
   onSubmit() {
     this.submitted = true;

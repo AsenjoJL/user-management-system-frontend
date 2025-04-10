@@ -1,1 +1,1 @@
-export * from './alert.component';//dsa
+export * from './alert.component'; 

@@ -1,43 +1,17 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { first } from 'rxjs/operators';
+import { ListComponent } from './list.component';
+import { AddEditComponent } from './add-edit.component';
 
-import { AccountService, AlertService } from '../_services';
+const routes: Routes = [
+  { path: '', component: ListComponent },
+  { path: 'add', component: AddEditComponent },
+  { path: 'edit/:id', component: AddEditComponent }
+];
 
-enum EmailStatus {
-  Verifying,
-  Failed
-}
-
-@Component({ templateUrl: 'verify-email.component.html' })
-export class VerifyEmailComponent implements OnInit {
-  EmailStatus = EmailStatus;
-  emailStatus = EmailStatus.Verifying;
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private accountService: AccountService,
-    private alertService: AlertService
-  ) { }
-
-  ngOnInit() {
-    const token = this.route.snapshot.queryParams['token'];
-
-    // remove token from url to prevent http referer leakage
-    this.router.navigate([], { relativeTo: this.route, replaceUrl: true });
-
-    this.accountService.verifyEmail(token)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.alertService.success('Verification successful, you can now login', { keepAfterRouteChange: true });
-          this.router.navigate(['../login'], { relativeTo: this.route });
-        },
-        error: () => {
-          this.emailStatus = EmailStatus.Failed;
-        }
-      });
-  }
-}
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class AccountsRoutingModule {}

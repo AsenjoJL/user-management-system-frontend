@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,9 +11,8 @@ import { UpdateComponent } from './update.component';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        ProfileRoutingModule
-    ],
-    declarations: [
+        ProfileRoutingModule,
+        // Add standalone components here instead of declarations
         LayoutComponent,
         DetailsComponent,
         UpdateComponent
